@@ -1,0 +1,38 @@
+{
+  "name": "sorting_algos_visualization",
+  "version": "1.0.0",
+  "description": "Web app demonstrates how differnt sorting algorithms perform sorting. Given an array of nums this of different length and type(ascending, descending or random) user is able to choose an algorithm(e.g. mergeSort, bubbleSort, quickSort) and see a visual of sorting proccess for given algorithm. In addision this app will allow to show 2 algorithms side by side in order to show difference between two different algorithms.",
+  "main": "index.js",
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch --mode=development",
+    "build": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexD89/SortingAlgosVisualization.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexD89/SortingAlgosVisualization/issues"
+  },
+  "homepage": "https://github.com/AlexD89/SortingAlgosVisualization#readme",
+  "dependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "babel-loader": "^8.2.3",
+    "core-js": "^3.19.2",
+    "css-loader": "^6.5.1",
+    "mini-css-extract-plugin": "^2.4.5",
+    "regenerator-runtime": "^0.13.9",
+    "sass": "^1.44.0",
+    "sass-loader": "^12.3.0",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1"
+  }
+}
