@@ -9,18 +9,41 @@ In addision this app will allow to show 2 algorithms side by side in order to sh
 # Functionality
 
 In SAV project, users will be able to:
-<ul>
-    <li>Choose a type of array</li>
-    <li>Choose a size of array</li>
-    <li>Choose a speed of sorting</li>
-    <li>Choose a type of sorting algorithm</li>
-</ul>
+* Choose a type of array
+* Choose a size of array
+* Choose a speed of sorting
+* Choose a type of sorting algorithm
 
 In addition, this project will include:
-<ul>
-    <li>A production README</li>
-</ul>
+
+* A production README
+
 
 # Wireframes
 
-<img src="https://wireframe.cc/LsgvJw">
+<img src="assets/wireframe.png">
+
+* Controlls will include drop down menus for type and size of arrays, speed of animation an choices of algos for graphs. Also buttons to generate arrays and initialize sorting.
+* Graph 1 and Graph 2 will perform sorting for given algos
+* Nav links will hold links to github, linkedin, etc.
+
+
+# Technologies, Libraries, APIs
+
+This project will be implemented with the following technologies:
+* The D3 Api to render graphs
+* Webpack to bundle and transpile the source the source JavaScript code
+
+# Implementation Timeline
+
+* Friday Afternoon & Weekend: Setup project using webpack. Implement first graph, using D3 library. Add basic controlls and implement one algorithm for testing. Learn more about D3.
+
+* Monday: Implement animation for sorting and additional sorting algos. 
+
+* Tuesday: Work on second graph and tweek controlls.
+
+* Wednesday: Style the page with css. Add additional functionality if time permits.
+
+* Thursday morning: Prepare project for submission
+
+
