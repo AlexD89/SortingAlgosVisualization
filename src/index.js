@@ -28,15 +28,17 @@ document.addEventListener("DOMContentLoaded", () => {
         bar2.transition()
             .duration(2000)
             .attr("x", `${bar1.attr("x")}`);
+   
     }
 
+    console.log(bar1)
+
+    swapper(bar1,bar3);
 
     for (let i = 2; i < data.length-1; i++){
-        let tempIdx svg.select;
-        currentBar = svg.select(`.bar-${i}`);
-        nextBar = svg.select(`.bar-${i+1}`);
+        let currentBar = svg.select(`.bar-${i}`);
+        let nextBar = svg.select(`.bar-${i+1}`);
     }
-    swapper(bar1,bar3);
 
   
 });
