@@ -31,8 +31,9 @@ In addition, this project will include:
 # Technologies, Libraries, APIs
 
 This project will be implemented with the following technologies:
-* The D3 Api to render graphs
-* Webpack to bundle and transpile the source the source JavaScript code
+* The D3 API to render graphs
+* Webpack and Babel to bundle and transpile the source the source JavaScript code
+* npm to manage project dependencies
 
 # Implementation Timeline
 
