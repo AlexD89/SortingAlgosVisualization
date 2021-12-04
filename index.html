@@ -17,7 +17,55 @@
     <header>
         <h1>Sorting Algorithms Visualization</h1>
     </header>
+
+    <div class="controls">
+
+        <form action="">
+            <select name="array-type">
+                <option selected disabled>-- Array Type --</option>
+                <option value="small">Random</option>
+                <option value="medium">Ascending</option>
+                <option value="large">Descending</option>
+            </select>
+            <select name="array-size">
+                <option selected disabled>-- Array Size --</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+            </select>
+            <input type="submit" value="generate array">
+        </form>
+        
+        <form action="">
+            <select name="graph-1">
+                <option selected disabled>--  Graph 1  --</option>
+                <option value="quickSort">Bubble Sort</option>
+                <option value="quickSort">Quick Sort</option>
+                <option value="quickSort">Merge Sort</option>
+            </select>
+            <select name="graph-2">
+                <option selected disabled>--  Graph 2  --</option>
+                <option value="quickSort">Bubble Sort</option>
+                <option value="quickSort">Quick Sort</option>
+                <option value="quickSort">Merge Sort</option>
+            </select>
+            <select name="speed">
+                <option selected disabled>--  Speed  --</option>
+                <option value="quickSort">Slow</option>
+                <option value="quickSort">Normal</option>
+                <option value="quickSort">Fast</option>
+            </select>
+            
+            <input type="submit" value="Run Sort">
+        </form>
+        
+    </div>
+        
+    <br>
+        
     <div id="graph1"></div>
+    <div id="graph2"></div>
+
 </body>
 
 </html>

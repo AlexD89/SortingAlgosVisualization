@@ -8,3 +8,14 @@
 .bars:hover {
   fill: teal;
 }
+
+svg {
+  border: solid black 1px;
+  padding: 5px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
