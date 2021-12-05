@@ -1,4 +1,6 @@
 import * as utils from "./scripts/utils.js";
+import * as algos from "./scripts/sorting_algorithms.js"
+import { drag } from "d3-drag";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -51,42 +53,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const bar3 = graph1.select(".bar-3");
     const bar4 = graph1.select(".bar-4");
 
+    let speed = 100;
 
-    async function swapper(bar1,bar2){
-
-        const barOneTransition = bar1.transition()
-            .delay(1000)
-            .duration(2000)
-            .attr("x", `${bar2.attr("x")}`)
-            .end();
-            
-            
-        const barTwoTransition = bar2.transition()
-            .delay(1000)
-            .duration(2000)
-            .attr("x", `${bar1.attr("x")}`)
-            .end();
-
-        const tempIdx = bar1.attr('class');
-        bar1.attr('class', bar2.attr('class'));
-        bar2.attr('class', tempIdx);
-
-        return Promise.all([barOneTransition, barTwoTransition]);
-    }
-
-    // swapper(bar1,bar2).then(() => swapper(bar1,bar2))
-    async function parse(){
+    async function parse(graph, speed){
         for (let i = 0; i < data.length-1; i++){
-            const currentBar = graph1.select(`.bar-${i}`);
-            const nextBar = graph1.select(`.bar-${i+1}`);
-            console.log(currentBar);
-            console.log(nextBar);
-            await swapper(currentBar, nextBar);
+            const currentBar = graph.select(`.bar-${i}`);
+            const nextBar = graph.select(`.bar-${i+1}`);
+            await algos.swapper(currentBar, nextBar, speed);
         }
-        // await swapper(bar1,bar2);
-        // swapper(bar3,bar4);
     }
 
-    parse();
+    async function bubbleSort(graph, speed){
+        let sorted = false;
+        while (!sorted){
+            sorted = true;
+            for (let i = 0; i < data.length-1; i++){
+                let currentBar = graph.select(`.bar-${i}`);
+                let nextBar = graph.select(`.bar-${i + 1}`);
+                if(data[i] > data[i+1]){
+                    [data[i],data[i+1]] = [data[i+1], data[i]];
+                    sorted = false;
+                    await algos.swapper(currentBar,nextBar,speed);
+                }
+            }
+        }
+    }
+
+    // parse(graph1,speed);
+    bubbleSort(graph1,speed);
 
 });
