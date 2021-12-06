@@ -68,6 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if(sortingAlgo1.value === "bubble-sort") {
             algos.bubbleSort(graph1,speed,data1);
+        } else if (sortingAlgo1.value === "quick-sort") {
+            quickSort(graph1, speed);
         }
 
         if(sortingAlgo2.value === "bubble-sort") {
@@ -98,41 +100,59 @@ document.addEventListener("DOMContentLoaded", () => {
     //         .duration(2000)
     //         .attr("x",0)
 
-    function QSswapper (bar1, bar2){
+
+    const speed = 100;
+    function QSswapper (bar1, bar2, speed){
         // !!! A bad way to get index. Has to be Fixed !!!
         const bar1Idx = parseInt(bar1.attr("class").slice(9));
         const bar2Idx = parseInt(bar2.attr("class").slice(9));
-       
+
         const promise = bar2.transition()
-            .delay(1000)
-            .duration(1000)
+            // .delay(speed)
+            .duration(speed)
             .attr("x",bar1.attr("x"))
-            .attr("class","bars bar-"+bar1Idx)
+            //there is a bug here. Return class bar0 instead of bar-0
+            // .attr("class", bar1.attr("class"))
             .end();
+        //fix for the bug on line 115
+        bar2.attr("class",bar1.attr("class"));
 
         for (let i=bar1Idx; i < bar2Idx; i++){
             const bar = graph1.select(".bar-" + i);
             bar.transition()
-                .delay(1000)
-                .duration(1000)
-                .attr("x", parseInt(bar.attr("x")) + 20)
+                // .delay(speed)
+                .duration(speed)
+                // !!! make x dynamic !!!!
+                .attr("x", parseInt(bar.attr("x")) + parseInt(bar.attr("width")) + 1)
                 .attr("class", `bars bar-${parseInt(i) + 1}`);
  
         }
         return promise;
     }
 
-    async function quickSort(){
-        let pivot = graph1.select(".bar-0");
-        
-        for (let i = 1; i < data.length; i++){
-            const currentBar = graph1.select(".bar-" + i);
+    async function quickSort(graph, speed, start = 0, end = data.length){
+        if(end - start <= 1 ) {
+            return;
+        }
+        const pivot = graph.select(`.bar-${start}`);
+        for (let i = start+1; i < end; i++){
+            const currentBar = graph.select(".bar-" + i);
             if (parseInt(pivot.data()) > parseInt(currentBar.data())){
-                await QSswapper (pivot,currentBar);
+                await QSswapper (pivot,currentBar,speed);
             }
         }
+        const left = graph.selectAll('rect').filter(function(d){return d < pivot.data()});
+        let pivotIdx = parseInt(pivot.attr("class").slice(9));
+        const endIdx = pivotIdx + (end-pivotIdx);
+        
+        await quickSort(graph,speed,start,pivotIdx);
+        await quickSort(graph,speed,pivotIdx+1, endIdx );
     }
+    // console.log(quickSort);
+    // quickSort(graph1,speed);
 
-    quickSort();
+    // console.log(graph1.selectAll("rect"));
+    // const temp = graph1.selectAll("rect").filter(function(d){return d < 20});
+    // console.log(temp.filter(function(d,i){return i===3}));
 
 });
