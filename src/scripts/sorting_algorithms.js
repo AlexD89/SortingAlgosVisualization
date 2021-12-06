@@ -18,4 +18,21 @@ function swapper(bar1, bar2, speed) {
     return Promise.all([barOneTransition, barTwoTransition]);
 }
 
-export { swapper }
+
+async function bubbleSort(graph, speed, data) {
+    let sorted = false;
+    while (!sorted) {
+        sorted = true;
+        for (let i = 0; i < data.length - 1; i++) {
+            let currentBar = graph.select(`.bar-${i}`);
+            let nextBar = graph.select(`.bar-${i + 1}`);
+            if (data[i] > data[i + 1]) {
+                [data[i], data[i + 1]] = [data[i + 1], data[i]];
+                sorted = false;
+                await swapper(currentBar, nextBar, speed);
+            }
+        }
+    }
+}
+
+export { swapper, bubbleSort }

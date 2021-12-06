@@ -20,7 +20,7 @@
 
     <div class="controls">
 
-        <form action="" id="controls-form">
+        <form id="controls-form">
             <select id="array-type">
                 <!-- <option selected disabled>-- Array Type --</option> -->
                 <option value="random" selected>Random</option>
@@ -36,24 +36,24 @@
             <input type="submit" value="generate array">
         </form>
         
-        <form action="">
-            <select name="graph-1">
-                <option selected disabled>--  Graph 1  --</option>
-                <option value="quickSort">Bubble Sort</option>
-                <option value="quickSort">Quick Sort</option>
-                <option value="quickSort">Merge Sort</option>
+        <form id="algo-form">
+            <select id="graph1Algo">
+                <!-- <option selected disabled>--  Graph 1  --</option> -->
+                <option value="bubble-sort" selected>Bubble Sort</option>
+                <option value="quick-sort">Quick Sort</option>
+                <option value="quick-sort">Merge Sort</option>
             </select>
-            <select name="graph-2">
-                <option selected disabled>--  Graph 2  --</option>
-                <option value="quickSort">Bubble Sort</option>
-                <option value="quickSort">Quick Sort</option>
-                <option value="quickSort">Merge Sort</option>
+            <select id="graph2Algo">
+                <!-- <option selected disabled>--  Graph 2  --</option> -->
+                <option value="bubble-sort" selected>Bubble Sort</option>
+                <option value="quick-sort">Quick Sort</option>
+                <option value="merge-sort">Merge Sort</option>
             </select>
-            <select name="speed">
-                <option selected disabled>--  Speed  --</option>
-                <option value="quickSort">Slow</option>
-                <option value="quickSort">Normal</option>
-                <option value="quickSort">Fast</option>
+            <select id="speed">
+                <!-- <option selected disabled>--  Speed  --</option> -->
+                <option value="slow">Slow</option>
+                <option value="normal" selected>Normal</option>
+                <option value="fast">Fast</option>
             </select>
             
             <input type="submit" value="Run Sort">
