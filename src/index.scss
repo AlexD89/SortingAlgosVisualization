@@ -1,3 +1,5 @@
+@import "./styles/reset.css";
+
 .bars {
     fill: rgb(8, 175, 175);
 }
@@ -16,4 +18,25 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: lightcyan;
+}
+
+.graph-view {
+    background-color: lightgoldenrodyellow;
+    border: 1px black solid;
+    border-radius: 1%;
+    width: 80%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.controls {
+    background-color: lightgoldenrodyellow;
+    border: 1px solid black;
+    width: 70%;
+    padding: 15px 0 15px 0;
+    display: flex;
+    justify-content: space-around;
 }

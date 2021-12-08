@@ -83,4 +83,63 @@ async function quickSort(graph, speed, data, start = 0, end = -1) {
     await quickSort(graph, speed, data, pivotIdx + 1, endIdx);
 }
 
-export { swapper, bubbleSort, quickSort, QSswapper }
+            // ---- Merge Sort ---- //
+
+//passing graph.selection as bars
+
+async function merge(left, right, graph, selection, speed) {
+
+    let leftBar = graph.select(smallestIdx(left));
+    let rightBar = graph.select(smallestIdx(right));
+
+    while (left.size() !== 0 && right.size() !== 0) {
+
+
+        if (parseInt(leftBar.data()) > parseInt(rightBar.data())) {
+            await QSswapper(graph, leftBar, rightBar, speed)
+            right = right.filter(function (d, i) { return d > smallestVal(right) });
+            if (right.size() > 0) rightBar = graph.select(smallestIdx(right));
+        } else {
+            left = left.filter(function (d, i) { return d > smallestVal(left) });
+            if (left.size() > 0) leftBar = graph.select(smallestIdx(left));
+        }
+
+    }
+    return selection;
+}
+
+
+async function mergeSort(graph, bars, speed) {
+    if (bars.size() <= 1) {
+        return bars;
+    }
+    const mid = Math.floor(bars.size() / 2);
+    const left = bars.filter(function (d, i) { return i < mid });
+    const right = bars.filter(function (d, i) { return i >= mid });
+    return await merge(await mergeSort(graph, left, speed), await mergeSort(graph, right, speed), graph, bars, speed).then(x => {
+        return x;
+    });
+}
+
+function smallestIdx(bars) {
+    const idxArr = [];
+    bars.each(function (d, i) {
+        const bar = (bars.filter(function (d, j) { return i === j }))
+        const idx = parseInt(bar.attr("class").slice(9));
+        idxArr.push(idx);
+    });
+    const idx = Math.min(...idxArr);
+    return ".bar-" + idx;
+}
+
+function smallestVal(bars) {
+    const valArr = [];
+    bars.each(function (d1, i) {
+        const bar = (bars.filter(function (d2, i) { return d1 === d2 }))
+        valArr.push(parseInt(bar.data()));
+    })
+    return Math.min(...valArr);
+}
+
+
+export { swapper, bubbleSort, quickSort, QSswapper, mergeSort }
