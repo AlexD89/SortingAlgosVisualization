@@ -62,7 +62,8 @@ table {
 }
 
 svg {
-  border: solid black 1px;
+  border: solid #f7f4f4 1px;
+  background-color: white;
   padding: 5px;
   margin: 5px;
 }
@@ -71,15 +72,23 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: lightcyan;
+  background-color: whitesmoke;
+  background-size: 100%;
+}
+
+header {
+  font-size: 70px;
+  margin: 10px;
 }
 
 .graph-view {
-  background-color: lightgoldenrodyellow;
-  border: 1px black solid;
-  border-radius: 1%;
+  background-color: #90c6f8;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 5px, 5px;
   width: 80%;
-  height: 600px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin: 10px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -88,8 +97,10 @@ body {
 .controls {
   background-color: lightgoldenrodyellow;
   border: 1px solid black;
+  border-radius: 5px 5px 5px 5px;
   width: 70%;
   padding: 15px 0 15px 0;
+  margin: 10px;
   display: flex;
   justify-content: space-around;
 }
