@@ -32,8 +32,89 @@ const graph1 = d3.select("#graph1").append("svg")
     .attr("width", width)
     .attr("style", "border: 1px solid black");
 
-    const graph2 = d3.select("#graph2").append("svg")
-                .attr("height", height)
-                .attr("width", width)
-                .attr("style", "border: 1px solid black");
+const graph2 = d3.select("#graph2").append("svg")
+            .attr("height", height)
+            .attr("width", width)
+            .attr("style", "border: 1px solid black");
+```
+
+* Array to sort are generated with "generateRandomArray" function and then passed
+    as data to "renderGraph" , which render new graph to the page
+
+```js 
+
+const generateRandomArray = (size, max) => {
+    const array = [];
+    while(array.length < size) {
+        let randomNum = Math.floor(Math.random() * max);
+        if (!array.includes(randomNum) && randomNum > 0){
+            array.push(randomNum);
+        }
+    }
+    return array;
+}
+
+const renderGraph = (svg, data) => {
+    svg.selectAll("rect")
+        .data(data)
+        .enter().append("rect")
+            .attr("class", function (d, i) { return `bars bar-${i}` })
+            .attr("height", function (d, i) { return (d * 3) })
+            .attr("width", function () { return 500 / data.length - 1 })
+            .attr("x", function (d, i) { return (i * (500 / data.length)) })
+            .attr("y", function (d, i) { return 300 - (d * 3) });
+}
+
+```
+
+* Animation is produced by swapper functions which return promises in order to chain 
+    transitions asyncronous
+
+```js
+function swapper(bar1, bar2, speed) {
+
+    const barOneTransition = bar1.transition()
+        .duration(speed)
+        .attr("x", `${bar2.attr("x")}`)
+        .end();
+
+
+    const barTwoTransition = bar2.transition()
+        .duration(speed)
+        .attr("x", `${bar1.attr("x")}`)
+        .end();
+
+    const tempIdx = bar1.attr('class');
+    bar1.attr('class', bar2.attr('class'));
+    bar2.attr('class', tempIdx);
+
+    return Promise.all([barOneTransition, barTwoTransition]);
+}
+```
+```js
+    function QSswapper(graph, bar1, bar2, speed) {
+    const bar1Idx = parseInt(bar1.attr("class").slice(9));
+    const bar2Idx = parseInt(bar2.attr("class").slice(9));
+
+    const promise = bar2.transition()
+        .duration(speed)
+        .attr("x", bar1.attr("x"))
+        .end();
+
+    bar2.attr("class", bar1.attr("class"));
+
+    for (let i = bar1Idx; i < bar2Idx; i++) {
+        const bar = graph.select(".bar-" + i);
+        bar.transition()
+            .duration(speed)
+            .attr("x", parseInt(bar.attr("x")) + parseFloat(bar.attr("width")) + 1)
+            .attr("class", `bars bar-${parseInt(i) + 1}`);
+
+    }
+    return promise;
+}
+```
+
+```js
+
 ```
