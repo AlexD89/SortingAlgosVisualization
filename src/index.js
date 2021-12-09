@@ -5,8 +5,9 @@ import * as algos from "./scripts/sorting_algorithms.js";
 document.addEventListener("DOMContentLoaded", () => {
     
     let data = utils.generateRandomArray(25,101);
+    let speed = 100;
+    let arraySize = 25;
     
-    let speed = 200;
 
     const width = "500px";
     const height = "300px";
@@ -28,12 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const arrayForm = document.getElementById("controls-form");
     arrayForm.addEventListener("submit", (e)=> {
         e.preventDefault();
-        let arraySize = document.getElementById("array-size");
-        if(arraySize.value === "small") {
+        let sizeButton = document.getElementById("array-size");
+        if (sizeButton.value === "small") {
             arraySize = 25;
-        } else if (arraySize.value === "medium") {
+        } else if (sizeButton.value === "medium") {
             arraySize = 50;
-        } else if (arraySize.value === "large") {
+        } else if (sizeButton.value === "large") {
             arraySize = 100;
         }
         
@@ -58,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (speedButton.value === "normal") {
             speed = 100;
         } else if (speedButton.value === "fast") {
-            speed = 10;
+            speed = 20;
         }
 
         let sortingAlgo1 = document.getElementById("graph1Algo");
@@ -91,7 +92,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-  
+
+    const stopButton = document.querySelector("#stop");
+    stopButton.addEventListener('click',()=>{
+        d3.selectAll('rect').transition();
+    })
+
+    const infoButton = document.querySelector('.info-btn');
+    const aboutContainer = document.querySelector(".about");
+
+    infoButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        aboutContainer.toggleAttribute("hidden")
+    });
 
 
 });

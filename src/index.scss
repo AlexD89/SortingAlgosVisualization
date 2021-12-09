@@ -1,7 +1,10 @@
 @import "./styles/reset.css";
+@import "./styles/footer.css";
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .bars {
-    fill: rgb(8, 175, 175);
+    fill: rgb(72, 218, 218);
 }
 
 .bars:hover{
@@ -9,48 +12,96 @@
 }
 
 svg {
-    border: solid #f7f4f4 1px;
+    border: 1px solid black;
     background-color: white;
+    margin: 20px 0 40px 0;
     padding: 5px;
-    margin: 5px;
+}
+
+html {
+    height: 100%;
+    width: 100%;
 }
 
 body {
-    // height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background-color: whitesmoke;
-    // background: url("/assets/bg1.jpg");
+    background: url(/assets/pexels-anete-lusina-6331082.jpg);
+    position: relative;
+    height: 100%;
     background-size: 100%;
 }
 
+.about {
+    width: 50%;
+    padding: 10px;
+    margin: 15px 0;
+}
+
+.about h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+
+
 header {
-    font-size: 70px;
-    margin: 10px;
+    text-align: center;
+    font-size: 80px;
+    font-family: lobster;
+    padding: 20px;
+    color: rgb(161, 14, 14);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // margin-top: 50px;
+}
+
+
+.container {
+    background-color: rgb(203, 228, 240);
+    box-shadow: -2px 3px 10px;
+    border-radius: 5px 5px 5px 5px;
 }
 
 .graph-view {
-    background-color: rgb(144, 198, 248);
-    // border: 1px black solid;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 5px, 5px;
     width: 80%;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    margin: 10px;
+    padding: 20px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 70px;
 }
 
 .controls {
-    background-color: lightgoldenrodyellow;
-    border: 1px solid black;
-    border-radius: 5px 5px 5px 5px;
+
     width: 70%;
     padding: 15px 0 15px 0;
     margin: 10px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
+}
+
+.controls > div {
+    display: flex;
+}
+
+input[type = submit], button, select{
+    border-radius: 5px 5px 5px 5px;
+    margin-left: 3px;
+}
+
+.graph-view h2 {
+    font-size: 25px;
+    color: darkred;
+    font-family: "bebas neue";
 }

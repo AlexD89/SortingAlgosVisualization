@@ -1,0 +1,15 @@
+footer {
+    width: 100%;
+    background-color: rgb(73, 72, 69);
+    padding: 5px 0;
+    position: fixed;
+    bottom: 0;
+    color: white;
+    text-align: center;
+    opacity: 95%;
+}
+
+footer img {
+    height: 50px;
+    /* opacity: none; */
+}

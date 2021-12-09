@@ -9,65 +9,111 @@
     <link rel="stylesheet" href="./dist/main.css" />
     <script src="./dist/main.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="shortcut icon" href="./assets/icons8-bar-chart-48.png" type="image/x-icon">
 
     <title>Sorting Algorithms Visualization</title>
 </head>
 
 <body>
+    
     <header>
         <h1>Sorting Algorithms Visualization</h1>
     </header>
-
-    <div class="controls">
-
-        <form id="controls-form">
-            <select id="array-type">
-                <!-- <option selected disabled>-- Array Type --</option> -->
-                <option value="random" selected>Random</option>
-                <option value="asc">Ascending</option>
-                <option value="desc">Descending</option>
-            </select>
-            <select id="array-size">
-                <!-- <option selected disabled>-- Array Size --</option> -->
-                <option value="small" selected>Small Array</option>
-                <option value="medium">Medium Array</option>
-                <option value="large">Large Array</option>
-            </select>
-            <input type="submit" value="generate array">
-        </form>
+    
+    <main>
         
-        <form id="algo-form">
-            <select id="graph1Algo">
-                <!-- <option selected disabled>--  Graph 1  --</option> -->
-                <option value="bubble-sort" selected>Bubble Sort</option>
-                <option value="quick-sort">Quick Sort</option>
-                <option value="merge-sort">Merge Sort</option>
-            </select>
-            <select id="graph2Algo">
-                <!-- <option selected disabled>--  Graph 2  --</option> -->
-                <option value="bubble-sort" selected>Bubble Sort</option>
-                <option value="quick-sort">Quick Sort</option>
-                <option value="merge-sort">Merge Sort</option>
-            </select>
-            <select id="speed">
-                <!-- <option selected disabled>--  Speed  --</option> -->
-                <option value="slow">Slow</option>
-                <option value="normal" selected>Normal</option>
-                <option value="fast">Fast</option>
-            </select>
+        <div class="container about">
+            <h1>about</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna
+                aliqua. Vitae congue eu consequat ac felis donec et odio pellentesque. Mauris commodo quis imperdiet massa
+                tincidunt
+                nunc pulvinar. Fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque. Augue ut lectus arcu
+                bibendum
+                at varius vel pharetra vel. Cursus metus aliquam eleifend mi in nulla posuere. Eget velit aliquet sagittis id
+                consectetur purus ut. Praesent semper feugiat nibh sed pulvinar proin. Pulvinar etiam non quam lacus
+                suspendisse. Platea
+                dictumst quisque sagittis purus. Fringilla phasellus faucibus scelerisque eleifend. Risus quis varius quam
+                quisque.
+                Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Tellus id interdum velit laoreet id
+                donec
+                ultrices tincidunt arcu. Lorem ipsum dolor sit amet consectetur adipiscing.</p>
+        </div>
+
+        <div class="container controls">
+            <div>
+                <form id="controls-form">
+                    <select id="array-type">
+                        <option selected disabled>-- Array Type --</option>
+                        <option value="random">Random</option>
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                    <select id="array-size">
+                        <option selected disabled>-- Array Size --</option>
+                        <option value="small">Small Array</option>
+                        <option value="medium">Medium Array</option>
+                        <option value="large">Large Array</option>
+                    </select>
+                    <input type="submit" value="generate array">
+                </form>
+                
+                <button id="stop">Stop</button>
+            </div>
+                
+            <form id="algo-form">
+                <select id="graph1Algo">
+                    <option selected disabled>--  Graph 1  --</option>
+                    <option value="bubble-sort">Bubble Sort</option>
+                    <option value="quick-sort">Quick Sort</option>
+                    <option value="merge-sort">Merge Sort</option>
+                </select>
+                <select id="graph2Algo">
+                    <option selected disabled>--  Graph 2  --</option>
+                    <option value="bubble-sort">Bubble Sort</option>
+                    <option value="quick-sort">Quick Sort</option>
+                    <option value="merge-sort">Merge Sort</option>
+                </select>
+                <select id="speed">
+                    <option selected disabled>--  Speed  --</option>
+                    <option value="slow">Slow</option>
+                    <option value="normal" selected>Normal</option>
+                    <option value="fast">Fast</option>
+                </select>
+                
+                <input type="submit" value="Run Sort">
+            </form>
             
-            <input type="submit" value="Run Sort">
-        </form>
-
-        <!-- <button id="stop">STOP</button> -->
+            
+        </div>
         
-    </div>
-        
-    <div class = "graph-view">
-        <div id="graph1"></div>
-        <div id="graph2"></div>
-    </div>
+        <div class = "container graph-view">
+            <div id="graph1">
+                <h2>First Graph</h2>
+            </div>
+            <div id="graph2">
+                <h2>Second Graph</h2>
+            </div>
+        </div>
+    </main>
 
+        
+    <footer>
+        <a href="https://www.linkedin.com/in/alexander-dziuba-0426a0122" target="_blank">
+            <img src="./assets/linkedin-icon-2.svg" alt="LinkedIn logo">
+        </a>
+        <a href="http://www.facebook.com" target="_blank">
+            <img src="./assets/Facebook-icon-1.png" alt="facebook-icon">
+        </a>
+        <a href="https://github.com/AlexD89" target="_blank">
+            <img src="./assets/kisspng-github-pages-logo-repository-fork-github-logo-1-magentys-5b69de71b51265.8586076615336648817417.png" alt="Github logo">
+        </a>
+        <a href="About" class="info-btn">
+            <img src="./assets/about-64.ico" alt="Github logo">
+        </a>
+
+    </footer>
+        
 </body>
-
+    
 </html>
