@@ -21,8 +21,9 @@ In SAV project, users will are able to:
 * Choose a type  and a size of the graph to be sorted
 * Choose a type of sorting algorithm for given graphs
 * Choose a speed of sorting simulation
-![This is an image](./assets/controls.png)
+![Controls](./assets/controls.png)
 * Perform different sorting Algorithms side-by-side
+![Graphs](./assets/graphs.png)
 
 # Code snippets
 
