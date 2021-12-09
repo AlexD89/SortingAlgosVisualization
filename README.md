@@ -24,9 +24,9 @@ In SAV project, users will be able to:
 
 # Code snippets
 
-The graphs are rendered with the help of D3 library and svg
+* The graphs are rendered with the help of D3 library and svg
 
-```
+```js
 const graph1 = d3.select("#graph1").append("svg")
     .attr("height", height)
     .attr("width", width)
