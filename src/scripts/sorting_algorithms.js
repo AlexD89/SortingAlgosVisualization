@@ -23,19 +23,24 @@ function swapper(bar1, bar2, speed) {
 
 
 async function bubbleSort(graph, speed, data) {
-    let sorted = false;
-    while (!sorted) {
-        sorted = true;
-        for (let i = 0; i < data.length - 1; i++) {
-            let currentBar = graph.select(`.bar-${i}`);
-            let nextBar = graph.select(`.bar-${i + 1}`);
-            if (data[i] > data[i + 1]) {
-                [data[i], data[i + 1]] = [data[i + 1], data[i]];
-                sorted = false;
-                await swapper(currentBar, nextBar, speed);
+        let sorted = false;
+        while (!sorted) {
+            sorted = true;
+            try {
+                
+                for (let i = 0; i < data.length - 1; i++) {
+                    let currentBar = graph.select(`.bar-${i}`);
+                    let nextBar = graph.select(`.bar-${i + 1}`);
+                    if (data[i] > data[i + 1]) {
+                        [data[i], data[i + 1]] = [data[i + 1], data[i]];
+                        sorted = false;
+                        await swapper(currentBar, nextBar, speed);
+                    }
+                }
+            } catch (error) {
+                return;
             }
         }
-    }
 }
 
             // ---- Quick Sort ---- //
@@ -71,15 +76,21 @@ async function quickSort(graph, speed, data, start = 0, end = -1) {
     for (let i = start + 1; i < end; i++) {
         const currentBar = graph.select(".bar-" + i);
         if (parseInt(pivot.data()) > parseInt(currentBar.data())) {
-            await QSswapper(graph, pivot, currentBar, speed);
+            try{
+                await QSswapper(graph, pivot, currentBar, speed);
+            } catch(error){return;}
         }
     }
     const left = graph.selectAll('rect').filter(function (d) { return d < pivot.data() });
     let pivotIdx = parseInt(pivot.attr("class").slice(9));
     const endIdx = pivotIdx + (end - pivotIdx);
 
-    await quickSort(graph, speed, data, start, pivotIdx);
-    await quickSort(graph, speed, data, pivotIdx + 1, endIdx);
+    try{
+        await quickSort(graph, speed, data, start, pivotIdx);
+    } catch(error) {return};
+    try {
+        await quickSort(graph, speed, data, pivotIdx + 1, endIdx);
+    } catch(error) {return};
 }
 
             // ---- Merge Sort ---- //
