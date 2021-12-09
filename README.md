@@ -1,6 +1,6 @@
 # Sorting Algorithms Visualization
 
-Web app demonstrates how different sorting algorithms perform sorting.
+Sorting Algorithms Visualization demonstrates how different sorting algorithms perform sorting.
 Given an array of nums of different lengths and types (ascending, descending, or
 random) user can choose an algorithm(e.g. mergeSort, bubbleSort, quickSort)
 and see a visual of the sorting process for a given algorithm.
@@ -17,10 +17,12 @@ This project is implemented with the following technologies:
 
 # Functionality
 
-In SAV project, users will be able to:
+In SAV project, users will are able to:
 * Choose a type  and a size of the graph to be sorted
 * Choose a type of sorting algorithm for given graphs
 * Choose a speed of sorting simulation
+![This is an image](https://myoctocat.com/assets/controls.png)
+* Perform different sorting Algorithms side-by-side
 
 # Code snippets
 
@@ -114,7 +116,21 @@ function swapper(bar1, bar2, speed) {
     return promise;
 }
 ```
-
+* example of bubbleSort utilizing swapper function to perform animation
 ```js
-
+async function bubbleSort(graph, speed, data) {
+    let sorted = false;
+    while (!sorted) {
+        sorted = true;
+        for (let i = 0; i < data.length - 1; i++) {
+            let currentBar = graph.select(`.bar-${i}`);
+            let nextBar = graph.select(`.bar-${i + 1}`);
+            if (data[i] > data[i + 1]) {
+                [data[i], data[i + 1]] = [data[i + 1], data[i]];
+                sorted = false;
+                await swapper(currentBar, nextBar, speed);
+            }
+        }
+    }
+}
 ```
