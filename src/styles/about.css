@@ -1,16 +1,25 @@
 .about {
     width: 50%;
+    min-height: calc(100vh - 200px - 60px);
     padding: 10px;
     margin: 15px 0;
+    margin-bottom: 100px;
     position: relative;
 }
 
 .about h1 {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     padding-bottom: 10px;
-    font-size: 30px;
+    font-size: 40px;
     border-bottom: 1px solid black;
+    color: darkred;
+    font-family: lobster;
+}
+
+.about p {
+    font-size: 20px;
+    font-family: lobster;
 }
 
 .about button{
