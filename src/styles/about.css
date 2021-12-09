@@ -19,7 +19,8 @@
 
 .about p {
     font-size: 20px;
-    font-family: lobster;
+    font-family: "bebas neue";
+    text-indent: 15px;
 }
 
 .about button{
@@ -36,4 +37,8 @@
 .about button:hover {
     cursor: pointer;
     
+}
+
+.about li {
+    /* list-style: disc; */
 }
