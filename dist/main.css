@@ -76,6 +76,39 @@ footer img {
     height: 50px;
     /* opacity: none; */
 }
+/*!****************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/about.css ***!
+  \****************************************************************************************************/
+.about {
+    width: 50%;
+    padding: 10px;
+    margin: 15px 0;
+    position: relative;
+}
+
+.about h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    border-bottom: 1px solid black;
+}
+
+.about button{
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 100%;
+    right: -10px;
+    top: -10px;
+    padding: 6px 9px;
+    color: white;
+    background-color: red;
+}
+
+.about button:hover {
+    cursor: pointer;
+    
+}
 /*!*****************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (2) ***!
   \*****************************************************************************************************************************************/
@@ -105,18 +138,6 @@ body {
   position: relative;
   height: 100%;
   background-size: 100%;
-}
-
-.about {
-  width: 50%;
-  padding: 10px;
-  margin: 15px 0;
-}
-
-.about h1 {
-  text-align: center;
-  margin-bottom: 10px;
-  font-size: 30px;
 }
 
 header {
@@ -150,7 +171,7 @@ main {
   flex-wrap: wrap;
   text-align: center;
   margin-top: 30px;
-  margin-bottom: 70px;
+  margin-bottom: 90px;
 }
 
 .controls {

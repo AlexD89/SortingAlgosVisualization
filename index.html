@@ -23,6 +23,7 @@
     <main>
         
         <div class="container about">
+            <button>X</button>
             <h1>about</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                 magna
@@ -37,55 +38,56 @@
                 quisque.
                 Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Tellus id interdum velit laoreet id
                 donec
-                ultrices tincidunt arcu. Lorem ipsum dolor sit amet consectetur adipiscing.</p>
+                ultrices tincidunt arcu. Lorem ipsum dolor sit amet consectetur adipiscing.
+            </p>
         </div>
 
         <div class="container controls">
-            <div>
-                <form id="controls-form">
-                    <select id="array-type">
-                        <option selected disabled>-- Array Type --</option>
-                        <option value="random">Random</option>
-                        <option value="asc">Ascending</option>
-                        <option value="desc">Descending</option>
-                    </select>
-                    <select id="array-size">
-                        <option selected disabled>-- Array Size --</option>
-                        <option value="small">Small Array</option>
-                        <option value="medium">Medium Array</option>
-                        <option value="large">Large Array</option>
-                    </select>
-                    <input type="submit" value="generate array">
-                </form>
-                
-                <button id="stop">Stop</button>
-            </div>
-                
-            <form id="algo-form">
-                <select id="graph1Algo">
-                    <option selected disabled>--  Graph 1  --</option>
-                    <option value="bubble-sort">Bubble Sort</option>
-                    <option value="quick-sort">Quick Sort</option>
-                    <option value="merge-sort">Merge Sort</option>
+            <form id="controls-form">
+                <select id="array-type">
+                    <option selected disabled>-- Array Type --</option>
+                    <option value="random">Random</option>
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
                 </select>
-                <select id="graph2Algo">
-                    <option selected disabled>--  Graph 2  --</option>
-                    <option value="bubble-sort">Bubble Sort</option>
-                    <option value="quick-sort">Quick Sort</option>
-                    <option value="merge-sort">Merge Sort</option>
+                <select id="array-size">
+                    <option selected disabled>-- Array Size --</option>
+                    <option value="small">Small Array</option>
+                    <option value="medium">Medium Array</option>
+                    <option value="large">Large Array</option>
                 </select>
-                <select id="speed">
-                    <option selected disabled>--  Speed  --</option>
-                    <option value="slow">Slow</option>
-                    <option value="normal" selected>Normal</option>
-                    <option value="fast">Fast</option>
-                </select>
-                
-                <input type="submit" value="Run Sort">
+                <input type="submit" value="generate array">
             </form>
             
             
-        </div>
+            <div>
+                <form id="algo-form">
+                    <select id="graph1Algo">
+                        <!-- <option selected disabled>--  Graph 1  --</option> -->
+                        <option value="bubble-sort" selected>Bubble Sort</option>
+                        <option value="quick-sort">Quick Sort</option>
+                        <option value="merge-sort">Merge Sort</option>
+                    </select>
+                    <select id="graph2Algo">
+                        <!-- <option selected disabled>--  Graph 2  --</option> -->
+                        <option value="bubble-sort" selected>Bubble Sort</option>
+                        <option value="quick-sort">Quick Sort</option>
+                        <option value="merge-sort">Merge Sort</option>
+                    </select>
+                    <select id="speed">
+                        <!-- <option selected disabled>--  Speed  --</option> -->
+                        <option value="slow">Slow</option>
+                        <option value="normal" selected>Normal</option>
+                        <option value="fast">Fast</option>
+                    </select>
+                    
+                    <input type="submit" value="Start">
+                </form>
+                <button id="stop">Reset</button>
+            </div>
+                
+                
+            </div>
         
         <div class = "container graph-view">
             <div id="graph1">

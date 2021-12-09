@@ -1,5 +1,6 @@
 @import "./styles/reset.css";
 @import "./styles/footer.css";
+@import "./styles/about.css";
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
@@ -30,19 +31,6 @@ body {
     height: 100%;
     background-size: 100%;
 }
-
-.about {
-    width: 50%;
-    padding: 10px;
-    margin: 15px 0;
-}
-
-.about h1 {
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 30px;
-}
-
 
 
 header {
@@ -78,7 +66,7 @@ main {
     flex-wrap: wrap;
     text-align: center;
     margin-top: 30px;
-    margin-bottom: 70px;
+    margin-bottom: 90px;
 }
 
 .controls {

@@ -87,15 +87,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         
         //setting main data back to result of both sorts
-        data = data1;
-        data = data2;
+        // data = data1;
+        // data = data2;
     });
 
 
 
     const stopButton = document.querySelector("#stop");
     stopButton.addEventListener('click',()=>{
-        d3.selectAll('rect').transition();
+        d3.selectAll('rect').transition().end().then(() => {
+            d3.selectAll("svg > *").remove();
+            utils.renderGraph(graph1, data);
+            utils.renderGraph(graph2, data);
+            console.log(data);
+        });
     })
 
     const infoButton = document.querySelector('.info-btn');
@@ -106,5 +111,11 @@ document.addEventListener("DOMContentLoaded", () => {
         aboutContainer.toggleAttribute("hidden")
     });
 
+    const closeInfo = document.querySelector(".about button");
+
+    closeInfo.addEventListener("click", (e) => {
+        e.preventDefault();
+        aboutContainer.toggleAttribute("hidden");
+    })
 
 });
