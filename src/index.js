@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let data = utils.generateRandomArray(25,101);
     let speed = 100;
     let arraySize = 25;
+
     
 
     const width = "500px";
@@ -85,10 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (sortingAlgo2.value === "merge-sort") {
             algos.mergeSort(graph2, graph2.selectAll('rect'), speed);
         }
-        
-        //setting main data back to result of both sorts
-        // data = data1;
-        // data = data2;
+
     });
 
 

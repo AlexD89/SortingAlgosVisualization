@@ -41,7 +41,6 @@ async function bubbleSort(graph, speed, data) {
             // ---- Quick Sort ---- //
 
 function QSswapper(graph, bar1, bar2, speed) {
-    // !!! A bad way to get index. Has to be Fixed !!!
     const bar1Idx = parseInt(bar1.attr("class").slice(9));
     const bar2Idx = parseInt(bar2.attr("class").slice(9));
 

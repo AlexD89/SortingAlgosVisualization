@@ -74,7 +74,6 @@ footer {
 
 footer img {
     height: 50px;
-    /* opacity: none; */
 }
 /*!****************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/about.css ***!
@@ -179,12 +178,14 @@ main {
   padding: 15px 0 15px 0;
   margin: 10px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
 }
 
 .controls > div {
   display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
 }
 
 input[type=submit], button, select {
@@ -192,8 +193,19 @@ input[type=submit], button, select {
   margin-left: 3px;
 }
 
+input[type=submit]:hover, button:hover, select:hover {
+  cursor: pointer;
+}
+
 .graph-view h2 {
   font-size: 25px;
   color: darkred;
   font-family: "bebas neue";
+}
+
+label {
+  background-color: #8bb4e2;
+  border-radius: 5px 5px 5px 5px;
+  padding: 5px;
+  margin-left: 5px;
 }
