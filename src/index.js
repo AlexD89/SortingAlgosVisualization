@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (arrayType.value === "desc") data.sort((a, b) => (a - b)).reverse();
         
     
-        d3.selectAll('rect').transition().end().then(() => {
+        d3.selectAll('rect').interrupt().transition().end().then(() => {
             d3.selectAll("svg > *").remove();
             utils.renderGraph(graph1, data);
             utils.renderGraph(graph2, data);
@@ -60,47 +60,47 @@ document.addEventListener("DOMContentLoaded", () => {
     
     algoForm.addEventListener("submit", (e) => {
         e.preventDefault();
-    if (active === false){
+        if (active === false){
         
-        let speedButton = document.getElementById("speed");
-        if (speedButton.value === "slow") {
-            speed = 200;
-        } else if (speedButton.value === "normal") {
-            speed = 100;
-        } else if (speedButton.value === "fast") {
-            speed = 20;
-        }
+            let speedButton = document.getElementById("speed");
+            if (speedButton.value === "slow") {
+                speed = 200;
+            } else if (speedButton.value === "normal") {
+                speed = 100;
+            } else if (speedButton.value === "fast") {
+                speed = 20;
+            }
 
-        let sortingAlgo1 = document.getElementById("graph1Algo");
-        let sortingAlgo2 = document.getElementById("graph2Algo");
-        
-        // making duplicates of data for 2 graphs, so sort for graph1 
-        //doent affect data for graph2
-        const data1 = data.slice();
-        const data2 = data.slice();
+            let sortingAlgo1 = document.getElementById("graph1Algo");
+            let sortingAlgo2 = document.getElementById("graph2Algo");
+            
+            // making duplicates of data for 2 graphs, so sort for graph1 
+            //doent affect data for graph2
+            const data1 = data.slice();
+            const data2 = data.slice();
 
-        if(sortingAlgo1.value === "bubble-sort") {
-            active = true;
-            algos.bubbleSort(graph1,speed,data1);
-        } else if (sortingAlgo1.value === "quick-sort") {
-            active = true;
-            algos.quickSort(graph1, speed, data1);
-        } else if (sortingAlgo1.value === "merge-sort") {
-            active = true;
-            algos.mergeSort(graph1, graph1.selectAll('rect'), speed);
+            if(sortingAlgo1.value === "bubble-sort") {
+                active = true;
+                algos.bubbleSort(graph1,speed,data1);
+            } else if (sortingAlgo1.value === "quick-sort") {
+                active = true;
+                algos.quickSort(graph1, speed, data1);
+            } else if (sortingAlgo1.value === "merge-sort") {
+                active = true;
+                algos.mergeSort(graph1, graph1.selectAll('rect'), speed);
+            }
+            
+            if(sortingAlgo2.value === "bubble-sort") {
+                active = true;
+                algos.bubbleSort(graph2,speed,data2);
+            } else if (sortingAlgo2.value === "quick-sort") {
+                active = true;
+                algos.quickSort(graph2, speed, data2);
+                active = true;
+            } else if (sortingAlgo2.value === "merge-sort") {
+                algos.mergeSort(graph2, graph2.selectAll('rect'), speed);
+            }
         }
-        
-        if(sortingAlgo2.value === "bubble-sort") {
-            active = true;
-            algos.bubbleSort(graph2,speed,data2);
-        } else if (sortingAlgo2.value === "quick-sort") {
-            active = true;
-            algos.quickSort(graph2, speed, data2);
-            active = true;
-        } else if (sortingAlgo2.value === "merge-sort") {
-            algos.mergeSort(graph2, graph2.selectAll('rect'), speed);
-        }
-    }
        
     });
 
@@ -108,11 +108,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const stopButton = document.querySelector("#stop");
     stopButton.addEventListener('click',()=>{
-        d3.selectAll('rect').transition().end().then(() => {
+        d3.selectAll('rect').interrupt().transition().end().then(() => {
             d3.selectAll("svg > *").remove();
             utils.renderGraph(graph1, data);
             utils.renderGraph(graph2, data);
-        });
+        }).catch(err => {});
         active = false;
     })
 

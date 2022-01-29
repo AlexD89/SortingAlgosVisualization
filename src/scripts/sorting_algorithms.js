@@ -26,19 +26,19 @@ async function bubbleSort(graph, speed, data) {
         let sorted = false;
         while (!sorted) {
             sorted = true;
-            try {
-                
-                for (let i = 0; i < data.length - 1; i++) {
-                    let currentBar = graph.select(`.bar-${i}`);
-                    let nextBar = graph.select(`.bar-${i + 1}`);
+            for (let i = 0; i < data.length - 1; i++) {
+                let currentBar = graph.select(`.bar-${i}`);
+                let nextBar = graph.select(`.bar-${i + 1}`);
+                try {               
                     if (data[i] > data[i + 1]) {
                         [data[i], data[i + 1]] = [data[i + 1], data[i]];
                         sorted = false;
-                        await swapper(currentBar, nextBar, speed);
+                        await swapper(currentBar, nextBar, speed)
                     }
+                } catch (error) {
+                    sorted = true;
+                    return;
                 }
-            } catch (error) {
-                return;
             }
         }
 }
@@ -76,21 +76,21 @@ async function quickSort(graph, speed, data, start = 0, end = -1) {
     for (let i = start + 1; i < end; i++) {
         const currentBar = graph.select(".bar-" + i);
         if (parseInt(pivot.data()) > parseInt(currentBar.data())) {
-            try{
-                await QSswapper(graph, pivot, currentBar, speed);
-            } catch(error){return;}
+            // try{
+                await QSswapper(graph, pivot, currentBar, speed)
+            // } catch {
+            //     return "break";
+            // }
         }
     }
     const left = graph.selectAll('rect').filter(function (d) { return d < pivot.data() });
     let pivotIdx = parseInt(pivot.attr("class").slice(9));
     const endIdx = pivotIdx + (end - pivotIdx);
 
-    try{
-        await quickSort(graph, speed, data, start, pivotIdx);
-    } catch(error) {return};
-    try {
+    const temp = await quickSort(graph, speed, data, start, pivotIdx);
+    // if (temp != "break"){
         await quickSort(graph, speed, data, pivotIdx + 1, endIdx);
-    } catch(error) {return};
+    // }
 }
 
             // ---- Merge Sort ---- //
@@ -98,13 +98,10 @@ async function quickSort(graph, speed, data, start = 0, end = -1) {
 //passing graph.selection as bars
 
 async function merge(left, right, graph, selection, speed) {
-
     let leftBar = graph.select(smallestIdx(left));
     let rightBar = graph.select(smallestIdx(right));
 
     while (left.size() !== 0 && right.size() !== 0) {
-
-
         if (parseInt(leftBar.data()) > parseInt(rightBar.data())) {
             await QSswapper(graph, leftBar, rightBar, speed)
             right = right.filter(function (d, i) { return d > smallestVal(right) });
@@ -113,7 +110,6 @@ async function merge(left, right, graph, selection, speed) {
             left = left.filter(function (d, i) { return d > smallestVal(left) });
             if (left.size() > 0) leftBar = graph.select(smallestIdx(left));
         }
-
     }
     return selection;
 }
@@ -126,9 +122,11 @@ async function mergeSort(graph, bars, speed) {
     const mid = Math.floor(bars.size() / 2);
     const left = bars.filter(function (d, i) { return i < mid });
     const right = bars.filter(function (d, i) { return i >= mid });
-    return await merge(await mergeSort(graph, left, speed), await mergeSort(graph, right, speed), graph, bars, speed).then(x => {
-        return x;
-    });
+
+    let sortedLeft, sortedRight;
+    sortedLeft = await mergeSort(graph, left, speed);
+    sortedRight = await mergeSort(graph, right, speed)
+    return await merge(sortedLeft, sortedRight, graph, bars, speed)
 }
 
 function smallestIdx(bars) {
