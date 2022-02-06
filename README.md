@@ -1,6 +1,9 @@
-# Sorting Algorithms Visualization
+# <a href="https://alexd89.github.io/SortingAlgosVisualization/" target="_blank">Sorting Algorithms Visualization</a>
 
-Sorting Algorithms Visualization demonstrates how different sorting algorithms perform sorting.
+<a href="https://alexd89.github.io/SortingAlgosVisualization/" target="_blank">
+Sorting Algorithms Visualization
+</a> 
+demonstrates how different sorting algorithms perform sorting.
 Given an array of nums of different lengths and types (ascending, descending, or
 random) user can choose an algorithm(e.g. mergeSort, bubbleSort, quickSort)
 and see a visual of the sorting process for a given algorithm.
