@@ -43,7 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
         let arrayType = document.getElementById("array-type");
         
         data = utils.generateRandomArray(arraySize,101);
-        if (arrayType.value === "asc") data.sort((a,b) => (a-b));
+        if (arrayType.value === "asc") {
+            data.sort((a, b) => (a - b));
+            for (let i = 0; i < 5; i++) {
+                data.unshift(data.pop());
+            }
+        }
         if (arrayType.value === "desc") data.sort((a, b) => (a - b)).reverse();
         
     
